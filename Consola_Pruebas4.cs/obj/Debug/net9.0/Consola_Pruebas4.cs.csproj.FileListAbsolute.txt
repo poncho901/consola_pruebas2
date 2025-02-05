@@ -1,0 +1,14 @@
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\bin\Debug\net9.0\Consola_Pruebas4.cs.exe
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\bin\Debug\net9.0\Consola_Pruebas4.cs.deps.json
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\bin\Debug\net9.0\Consola_Pruebas4.cs.runtimeconfig.json
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\bin\Debug\net9.0\Consola_Pruebas4.cs.dll
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\bin\Debug\net9.0\Consola_Pruebas4.cs.pdb
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\Consola_Pruebas4.cs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\Consola_Pruebas4.cs.AssemblyInfoInputs.cache
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\Consola_Pruebas4.cs.AssemblyInfo.cs
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\Consola_Pruebas4.cs.csproj.CoreCompileInputs.cache
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\Consola_Pruebas4.cs.dll
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\refint\Consola_Pruebas4.cs.dll
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\Consola_Pruebas4.cs.pdb
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\Consola_Pruebas4.cs.genruntimeconfig.cache
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\ref\Consola_Pruebas4.cs.dll
