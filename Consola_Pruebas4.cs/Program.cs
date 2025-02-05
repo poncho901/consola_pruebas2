@@ -1,58 +1,30 @@
-﻿using Consola_Pruebas4.cs;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsolaPruebas4
+namespace Consola_Pruebas4
 {
     class Program
     {
         private static IPAddress ipPLC;
-        private static readonly List<Comando> comandos = new List<Comando>()
-        {
-            new Comando(1, "Rojo - CRUZ/FLECHA", 30002, "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c434152525f4155544f5f434f4e54524f4c5f4d414e55414c3e3c53656d61666f726f4372757a466c656368613e524f4a4f3c2f53656d61666f726f4372757a466c656368613e3c506963746f6772616d6143616a65726f3e4150414741444f3c2f506963746f6772616d6143616a65726f3e3c506963746f6772616d6142616e63617269613e4150414741444f3c2f506963746f6772616d6142616e63617269613e3c506963746f6772616d6154656c657065616a653e4150414741444f3c2f506963746f6772616d6154656c657065616a653e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373538373239333338383c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f434152525f4155544f5f434f4e54524f4c5f4d414e55414c3e00"),
-            new Comando(2, "Verde - CRUZ/FLECHA", 30002, "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c434152525f4155544f5f434f4e54524f4c5f4d414e55414c3e3c53656d61666f726f4372757a466c656368613e56455244453c2f53656d61666f726f4372757a466c656368613e3c506963746f6772616d6143616a65726f3e454e43454e4449444f3c2f506963746f6772616d6143616a65726f3e3c506963746f6772616d6142616e63617269613e454e43454e4449444f3c2f506963746f6772616d6142616e63617269613e3c506963746f6772616d6154656c657065616a653e454e43454e4449444f3c2f506963746f6772616d6154656c657065616a653e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373538373239333536333c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f434152525f4155544f5f434f4e54524f4c5f4d414e55414c3e00"),
-            new Comando(3, "Barrera Cerrada", 30002, "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c434152525f4155544f5f434f4e54524f4c5f4d414e55414c3e3c4261727265726141636365736f3e414249455254413c2f4261727265726141636365736f3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373538373330363737373c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f434152525f4155544f5f434f4e54524f4c5f4d414e55414c3e00"),
-            new Comando(4, "Barrera Abierta", 30002, "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c434152525f4155544f5f434f4e54524f4c5f4d414e55414c3e3c4261727265726141636365736f3e414249455254413c2f4261727265726141636365736f3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373538373330363737373c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f434152525f4155544f5f434f4e54524f4c5f4d414e55414c3e00")
-        };
-
-        public const int timeoutMs = 2000;
 
         static async Task Main(string[] args)
         {
             Console.Title = "Control PLC Industrial v2.0";
             ConfigurarConexion();
-            
-             await Task.Delay(20);
+
+            await Task.Delay(20);
             while (true)
             {
                 MostrarMenu();
                 ProcesarComando();
             }
         }
-         //TODO: Agregar el envío de los comandos
-        static void CerrarBarrera()
-         {
-         var comando = AutoFrames.GetCierre();
 
-         }
-         /// <summary>
-         /// Obtiene el ensaje de validación del cobro del vehículo, abre la barrera y pone semáforo verde
-         /// </summary>
-        static void ValidarPago()
-         {
-         var comando = AutoFrames.GetValidacion();
-         }
-         
-         static void InicializarAuto()
-         {
-         var comandos = AutoFrames.GetInit();
-         }
         static void ConfigurarConexion()
         {
             do
@@ -67,10 +39,9 @@ namespace ConsolaPruebas4
         {
             Console.Clear();
             Console.WriteLine("=== MENU DE CONTROL ===");
-            foreach (var cmd in comandos)
-            {
-                Console.WriteLine($"[{cmd.Id}] {cmd.Descripcion.PadRight(25)} [Puerto: {cmd.PuertoDestino}]");
-            }
+            Console.WriteLine("[1] Enviar comando de cierre");
+            Console.WriteLine("[2] Enviar comando de validación");
+            Console.WriteLine("[3] Enviar comandos de inicialización");
             Console.Write("\nSelección: ");
         }
 
@@ -78,69 +49,57 @@ namespace ConsolaPruebas4
         {
             if (int.TryParse(Console.ReadLine(), out int id))
             {
-                var cmd = comandos.FirstOrDefault(c => c.Id == id);
-                cmd?.Enviar(ipPLC);
+                switch (id)
+                {
+                    case 1:
+                        EnviarComando(AutoFrames.GetCierre());
+                        break;
+                    case 2:
+                        EnviarComando(AutoFrames.GetValidacion());
+                        break;
+                    case 3:
+                        foreach (var cmd in AutoFrames.GetInit())
+                        {
+                            EnviarComando(cmd);
+                        }
+                        break;
+                    default:
+                        Log("Opción no válida");
+                        break;
+                }
             }
         }
 
-        public static void Log(string mensaje)
-        {
-            string entrada = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {mensaje}";
-            Console.WriteLine(entrada);
-            File.AppendAllText("comandos.log", entrada + Environment.NewLine);
-        }
-    }
-
-    public class Comando
-    {
-        public int Id { get; }
-        public string Descripcion { get; }
-        public int PuertoDestino { get; }
-        public string DatosHex { get; }
-
-        public Comando(int id, string desc, int puerto, string hex)
-        {
-            Id = id;
-            Descripcion = desc;
-            PuertoDestino = puerto;
-            DatosHex = ValidarHex(hex);
-        }
-
-        private string ValidarHex(string hex)
-        {
-            string hexLimpio = hex.Replace(" ", "");
-            
-            if (hexLimpio.Length % 2 != 0)
-                throw new ArgumentException("Longitud hexadecimal inválida");
-            
-            if (!hexLimpio.All(c => "0123456789abcdefABCDEF".Contains(c)))
-                throw new ArgumentException("Caracteres hexadecimales inválidos");
-
-            return hexLimpio;
-        }
-
-        public void Enviar(IPAddress ip)
+        static void EnviarComando(string hexCommand)
         {
             try
             {
-                byte[] datos = HexToBytes(DatosHex);
-                
+                // Convertir la cadena hexadecimal a bytes
+                byte[] bytes = HexToBytes(hexCommand);
+
+                // Mostrar los bytes en formato ASCII
+                string asciiCommand = BytesToAscii(bytes);
+                Console.WriteLine("Comando en ASCII:");
+                Console.WriteLine(asciiCommand);
+
+                // Enviar los bytes por UDP
                 using (UdpClient cliente = new UdpClient())
                 {
-                    cliente.Client.SendTimeout = Program.timeoutMs; // Acceso permitido
-                    IPEndPoint destino = new IPEndPoint(ip, PuertoDestino);
-                    
-                    cliente.Send(datos, datos.Length, destino);
-                    Program.Log($"✅ {Descripcion} enviado a {ip}:{PuertoDestino}");
+                    cliente.Client.SendTimeout = 2000; // Timeout de 2 segundos
+                    IPEndPoint destino = new IPEndPoint(ipPLC, 30002); // Puerto 30002
+
+                    cliente.Send(bytes, bytes.Length, destino);
+                    Log($"✅ Comando enviado a {ipPLC}:30002");
                 }
             }
             catch (Exception ex)
             {
-                Program.Log($"❌ Error en {Descripcion}: {ex.Message}");
+                Log($"❌ Error al enviar comando: {ex.Message}");
             }
         }
 
-        private byte[] HexToBytes(string hex)
+        // Método para convertir una cadena hexadecimal a bytes
+        static byte[] HexToBytes(string hex)
         {
             byte[] bytes = new byte[hex.Length / 2];
             for (int i = 0; i < bytes.Length; i++)
@@ -149,6 +108,43 @@ namespace ConsolaPruebas4
             }
             return bytes;
         }
+
+        // Método para convertir bytes a una cadena ASCII
+        static string BytesToAscii(byte[] bytes)
+        {
+            return Encoding.ASCII.GetString(bytes);
+        }
+
+        // Método para registrar mensajes en la consola y en un archivo de log
+        public static void Log(string mensaje)
+        {
+            string entrada = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {mensaje}";
+            Console.WriteLine(entrada);
+            File.AppendAllText("comandos.log", entrada + Environment.NewLine);
+        }
+    }
+
+    public class AutoFrames
+    {
+        public static string GetCierre()
+        {
+            // Mensaje: <?xml version="1.0" encoding="utf-8"?><CARR_AUTO_SIMULACION><BarreraPaso>CERRADA</BarreraPaso><SemaforoPaso>ROJO</SemaforoPaso><Source>0</Source><Name>KRNL</Name><TimeStamp>3947837971348</TimeStamp><Target>AUTO</Target></CARR_AUTO_SIMULACION>
+            return "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c434152525f4155544f5f53494d554c4143494f4e3e3c426172726572615061736f3e434552524144413c2f426172726572615061736f3e3c53656d61666f726f5061736f3e524f4a4f3c2f53656d61666f726f5061736f3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373833373937313334383c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f434152525f4155544f5f53494d554c4143494f4e3e00";
+        }
+
+        public static string GetValidacion()
+        {
+            // Mensaje: <?xml version="1.0" encoding="utf-8"?><CARR_BRCT_VALIDA_TRANSACCION><Mensaje>ACEPTADA</Mensaje><recordatorio>false</recordatorio><Precio>00001000</Precio><Tarifa>1</Tarifa><ModoPago>ESPE</ModoPago><Placa/><Source>0</Source><Name>KRNL</Name><TimeStamp>3947837968840</TimeStamp><Target>AUTO</Target></CARR_BRCT_VALIDA_TRANSACCION>
+            return "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c434152525f425243545f56414c4944415f5452414e53414343494f4e3e3c4d656e73616a653e41434550544144413c2f4d656e73616a653e3c7265636f726461746f72696f3e66616c73653c2f7265636f726461746f72696f3e3c50726563696f3e30303030313030303c2f50726563696f3e3c5461726966613e313c2f5461726966613e3c4d6f646f5061676f3e455350453c2f4d6f646f5061676f3e3c506c6163612f3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373833373936383834303c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f434152525f425243545f56414c4944415f5452414e53414343494f4e3e00";
+        }
+
+        public static List<string> GetInit()
+        {
+            List<string> list = new List<string>();
+            list.Add("3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c4445565f51554552593e3c4f7065726163696f6e3e4445565f51554552593c2f4f7065726163696f6e3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373833373438353632333c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f4445565f51554552593e00");
+            list.Add("3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c4445565f4f50454e3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373833373438353632373c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f4445565f4f50454e3e00");
+            // Agrega más comandos si es necesario...
+            return list;
+        }
     }
 }
-    

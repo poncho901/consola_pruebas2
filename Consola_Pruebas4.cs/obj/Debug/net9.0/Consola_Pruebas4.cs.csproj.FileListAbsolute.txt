@@ -12,3 +12,4 @@ C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\
 C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\Consola_Pruebas4.cs.pdb
 C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\Consola_Pruebas4.cs.genruntimeconfig.cache
 C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\ref\Consola_Pruebas4.cs.dll
+C:\Users\BrianAlfonsoEspinosa\OneDrive - IPTE SOLUCIONES S.A. DE C.V\Documentos\IPTE\CONTROL SCHNEIDER\consola_pruebas2\consola_pruebas2\Consola_Pruebas4.cs\obj\Debug\net9.0\Consola_Pruebas4.cs.sourcelink.json
