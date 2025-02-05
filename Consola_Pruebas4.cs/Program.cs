@@ -48,7 +48,11 @@ namespace ConsolaPruebas4
          {
          var comando = AutoFrames.GetValidacion();
          }
-
+         
+         static void InicializarAuto()
+         {
+         var comandos = AutoFrames.GetInit();
+         }
         static void ConfigurarConexion()
         {
             do
