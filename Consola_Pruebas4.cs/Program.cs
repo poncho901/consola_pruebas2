@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using Consola_Pruebas4.cs;
 using System.Threading.Tasks;
 
 namespace Consola_Pruebas4
@@ -45,7 +46,7 @@ namespace Consola_Pruebas4
             Console.Write("\nSelección: ");
         }
 
-        static void ProcesarComando()
+        static async void ProcesarComando()
         {
             if (int.TryParse(Console.ReadLine(), out int id))
             {
@@ -58,9 +59,11 @@ namespace Consola_Pruebas4
                         EnviarComando(AutoFrames.GetValidacion());
                         break;
                     case 3:
-                        foreach (var cmd in AutoFrames.GetInit())
+                        var init = AutoFrames.GetInit();
+                        foreach (var cmd in init)
                         {
                             EnviarComando(cmd);
+                           await Task.Delay(20);
                         }
                         break;
                     default:
@@ -124,27 +127,27 @@ namespace Consola_Pruebas4
         }
     }
 
-    public class AutoFrames
-    {
-        public static string GetCierre()
-        {
-            // Mensaje: <?xml version="1.0" encoding="utf-8"?><CARR_AUTO_SIMULACION><BarreraPaso>CERRADA</BarreraPaso><SemaforoPaso>ROJO</SemaforoPaso><Source>0</Source><Name>KRNL</Name><TimeStamp>3947837971348</TimeStamp><Target>AUTO</Target></CARR_AUTO_SIMULACION>
-            return "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c434152525f4155544f5f53494d554c4143494f4e3e3c426172726572615061736f3e434552524144413c2f426172726572615061736f3e3c53656d61666f726f5061736f3e524f4a4f3c2f53656d61666f726f5061736f3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373833373937313334383c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f434152525f4155544f5f53494d554c4143494f4e3e00";
-        }
+    //public class AutoFrames
+    //{
+    //    public static string GetCierre()
+    //    {
+    //        // Mensaje: <?xml version="1.0" encoding="utf-8"?><CARR_AUTO_SIMULACION><BarreraPaso>CERRADA</BarreraPaso><SemaforoPaso>ROJO</SemaforoPaso><Source>0</Source><Name>KRNL</Name><TimeStamp>3947837971348</TimeStamp><Target>AUTO</Target></CARR_AUTO_SIMULACION>
+    //        return "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c434152525f4155544f5f53494d554c4143494f4e3e3c426172726572615061736f3e434552524144413c2f426172726572615061736f3e3c53656d61666f726f5061736f3e524f4a4f3c2f53656d61666f726f5061736f3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373833373937313334383c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f434152525f4155544f5f53494d554c4143494f4e3e00";
+    //    }
 
-        public static string GetValidacion()
-        {
-            // Mensaje: <?xml version="1.0" encoding="utf-8"?><CARR_BRCT_VALIDA_TRANSACCION><Mensaje>ACEPTADA</Mensaje><recordatorio>false</recordatorio><Precio>00001000</Precio><Tarifa>1</Tarifa><ModoPago>ESPE</ModoPago><Placa/><Source>0</Source><Name>KRNL</Name><TimeStamp>3947837968840</TimeStamp><Target>AUTO</Target></CARR_BRCT_VALIDA_TRANSACCION>
-            return "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c434152525f425243545f56414c4944415f5452414e53414343494f4e3e3c4d656e73616a653e41434550544144413c2f4d656e73616a653e3c7265636f726461746f72696f3e66616c73653c2f7265636f726461746f72696f3e3c50726563696f3e30303030313030303c2f50726563696f3e3c5461726966613e313c2f5461726966613e3c4d6f646f5061676f3e455350453c2f4d6f646f5061676f3e3c506c6163612f3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373833373936383834303c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f434152525f425243545f56414c4944415f5452414e53414343494f4e3e00";
-        }
+    //    public static string GetValidacion()
+    //    {
+    //        // Mensaje: <?xml version="1.0" encoding="utf-8"?><CARR_BRCT_VALIDA_TRANSACCION><Mensaje>ACEPTADA</Mensaje><recordatorio>false</recordatorio><Precio>00001000</Precio><Tarifa>1</Tarifa><ModoPago>ESPE</ModoPago><Placa/><Source>0</Source><Name>KRNL</Name><TimeStamp>3947837968840</TimeStamp><Target>AUTO</Target></CARR_BRCT_VALIDA_TRANSACCION>
+    //        return "3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c434152525f425243545f56414c4944415f5452414e53414343494f4e3e3c4d656e73616a653e41434550544144413c2f4d656e73616a653e3c7265636f726461746f72696f3e66616c73653c2f7265636f726461746f72696f3e3c50726563696f3e30303030313030303c2f50726563696f3e3c5461726966613e313c2f5461726966613e3c4d6f646f5061676f3e455350453c2f4d6f646f5061676f3e3c506c6163612f3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373833373936383834303c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f434152525f425243545f56414c4944415f5452414e53414343494f4e3e00";
+    //    }
 
-        public static List<string> GetInit()
-        {
-            List<string> list = new List<string>();
-            list.Add("3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c4445565f51554552593e3c4f7065726163696f6e3e4445565f51554552593c2f4f7065726163696f6e3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373833373438353632333c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f4445565f51554552593e00");
-            list.Add("3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c4445565f4f50454e3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373833373438353632373c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f4445565f4f50454e3e00");
-            // Agrega más comandos si es necesario...
-            return list;
-        }
-    }
+    //    public static List<string> GetInit()
+    //    {
+    //        List<string> list = new List<string>();
+    //        list.Add("3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c4445565f51554552593e3c4f7065726163696f6e3e4445565f51554552593c2f4f7065726163696f6e3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373833373438353632333c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f4445565f51554552593e00");
+    //        list.Add("3c3f786d6c2076657273696f6e3d22312e302220656e636f64696e673d227574662d38223f3e3c4445565f4f50454e3e3c536f757263653e303c2f536f757263653e3c4e616d653e4b524e4c3c2f4e616d653e3c54696d655374616d703e333934373833373438353632373c2f54696d655374616d703e3c5461726765743e4155544f3c2f5461726765743e3c2f4445565f4f50454e3e00");
+    //        // Agrega más comandos si es necesario...
+    //        return list;
+    //    }
+    //}
 }
