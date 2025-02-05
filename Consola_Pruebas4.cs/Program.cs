@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Consola_Pruebas4.cs;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -34,6 +35,19 @@ namespace ConsolaPruebas4
                 ProcesarComando();
             }
         }
+         //TODO: Agregar el envío de los comandos
+        static void CerrarBarrera()
+         {
+         var comando = AutoFrames.GetCierre();
+
+         }
+         /// <summary>
+         /// Obtiene el ensaje de validación del cobro del vehículo, abre la barrera y pone semáforo verde
+         /// </summary>
+        static void ValidarPago()
+         {
+         var comando = AutoFrames.GetValidacion();
+         }
 
         static void ConfigurarConexion()
         {
