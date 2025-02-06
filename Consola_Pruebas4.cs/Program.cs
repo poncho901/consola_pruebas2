@@ -15,7 +15,7 @@ namespace Consola_Pruebas4
 
         static async Task Main(string[] args)
         {
-            Console.Title = "Control PLC Industrial v2.0";
+            Console.Title = "Control PLC - Inicializacion de servicio v2.0";
             ConfigurarConexion();
 
             await Task.Delay(20);
